@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 22, cache: npm }
+        with: { node-version: 24, cache: npm }
       - run: npm ci
       - run: npm run lint
       - run: npm run format:check
@@ -57,7 +57,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: "3.11", cache: pip, cache-dependency-path: ml-service/requirements-dev.txt }
+        with: { python-version: "3.11", cache: pip, cache-dependency-path: package-lock.json }
       - run: pip install fastapi httpx pytest pydantic scikit-learn
       - run: python -m py_compile ml-service/main.py
       - run: cd ml-service && python -m pytest -q

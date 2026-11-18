@@ -6,7 +6,7 @@ RUN npm ci
 COPY client ./client
 RUN npm run build
 
-FROM node:22-alpine
+FROM node:24-alpine
 ENV NODE_ENV=production PORT=5000
 WORKDIR /app
 COPY package.json package-lock.json .npmrc ./

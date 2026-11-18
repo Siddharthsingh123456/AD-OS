@@ -1,0 +1,160 @@
+[
+  {
+    "id": "chat",
+    "name": "AI Chat",
+    "icon": "🧠",
+    "tagline": "General-purpose assistant with persistent memory",
+    "suggestions": [
+      "Explain event loops like I'm new to Node",
+      "Plan a 4-week roadmap to learn system design",
+      "Compare REST, GraphQL and tRPC"
+    ]
+  },
+  {
+    "id": "code",
+    "name": "Code Assistant",
+    "icon": "💻",
+    "tagline": "Generate, explain, refactor and debug code",
+    "fields": [
+      {
+        "label": "Task",
+        "type": "select",
+        "options": ["Generate", "Explain", "Refactor", "Debug", "Review", "Convert"]
+      },
+      { "label": "Language / framework", "type": "text", "placeholder": "e.g. TypeScript + Express" }
+    ],
+    "suggestions": [
+      "Write a rate limiter middleware for Express",
+      "Refactor this function to be pure and testable",
+      "Explain closures with a short example"
+    ]
+  },
+  {
+    "id": "research",
+    "name": "Research Agent",
+    "icon": "🔍",
+    "tagline": "Plan → investigate → synthesize → report",
+    "fields": [
+      { "label": "Depth", "type": "select", "options": ["Quick brief", "Standard report", "Deep dive"] },
+      { "label": "Audience", "type": "text", "placeholder": "e.g. CTO, beginner, investor" }
+    ],
+    "suggestions": [
+      "Compare vector databases for a 10M-document RAG system",
+      "State of LoRA vs QLoRA fine-tuning",
+      "Pros and cons of serverless for ML inference"
+    ]
+  },
+  {
+    "id": "sql",
+    "name": "SQL Agent",
+    "icon": "🗄️",
+    "tagline": "Natural language to SQL, schema design and tuning",
+    "fields": [
+      {
+        "label": "Dialect",
+        "type": "select",
+        "options": ["PostgreSQL", "MySQL", "SQLite", "SQL Server", "Oracle", "MongoDB (aggregation)"]
+      },
+      { "label": "Schema (DDL or table list)", "type": "textarea", "placeholder": "CREATE TABLE users (id int, ...)" }
+    ],
+    "suggestions": [
+      "Top 10 customers by revenue last quarter",
+      "Design a schema for a multi-tenant SaaS",
+      "Why is this query slow? Suggest indexes"
+    ]
+  },
+  {
+    "id": "testing",
+    "name": "Testing Agent",
+    "icon": "🧪",
+    "tagline": "Generate tests and plan your test strategy",
+    "fields": [
+      {
+        "label": "Framework",
+        "type": "select",
+        "options": ["Jest", "Vitest", "Pytest", "Mocha + Chai", "JUnit", "Playwright", "Cypress", "Supertest"]
+      },
+      { "label": "Test type", "type": "select", "options": ["Unit", "Integration", "End-to-end", "Test plan only"] }
+    ],
+    "suggestions": [
+      "Write unit tests for this auth service",
+      "Suggest edge cases for a date-range picker",
+      "Create Supertest tests for my Express routes"
+    ]
+  },
+  {
+    "id": "debugging",
+    "name": "Debugging Agent",
+    "icon": "🐛",
+    "tagline": "Error analysis, root cause and fixes",
+    "fields": [{ "label": "Stack / runtime", "type": "text", "placeholder": "e.g. Node 20, React 18, MongoDB 7" }],
+    "suggestions": [
+      "Explain: MongooseServerSelectionError ECONNREFUSED",
+      "React: too many re-renders — find the cause",
+      "Why is my async function returning undefined?"
+    ]
+  },
+  {
+    "id": "deployment",
+    "name": "Deployment Agent",
+    "icon": "🚀",
+    "tagline": "CI/CD, hosting and production readiness",
+    "fields": [
+      {
+        "label": "Platform",
+        "type": "select",
+        "options": ["Vercel", "Render", "Railway", "AWS", "Google Cloud", "Azure", "Docker / VPS", "Netlify", "Fly.io"]
+      },
+      { "label": "Stack", "type": "text", "placeholder": "e.g. MERN + Python ML service" }
+    ],
+    "suggestions": [
+      "Deploy a MERN app on Vercel with MongoDB Atlas",
+      "Write a GitHub Actions CI pipeline for Node",
+      "Production checklist for an LLM-backed API"
+    ]
+  },
+  {
+    "id": "interview",
+    "name": "Interview Simulator",
+    "icon": "🎯",
+    "tagline": "Mock interviews with live feedback",
+    "fields": [
+      { "label": "Target role", "type": "text", "placeholder": "e.g. MERN developer, ML engineer" },
+      { "label": "Level", "type": "select", "options": ["Intern / Fresher", "Junior", "Mid-level", "Senior"] },
+      { "label": "Type", "type": "select", "options": ["Technical", "System design", "Behavioral", "Mixed"] }
+    ],
+    "suggestions": ["Start the interview", "Ask me about React performance", "Give me a hard system design question"]
+  },
+  {
+    "id": "rag",
+    "name": "RAG Search",
+    "icon": "📚",
+    "tagline": "Ask questions across everything you've indexed",
+    "kind": "rag",
+    "collection": "general"
+  },
+  {
+    "id": "codebase",
+    "name": "Codebase RAG",
+    "icon": "🧬",
+    "tagline": "Chat with a repository or project",
+    "kind": "rag",
+    "collection": "codebase"
+  },
+  {
+    "id": "docs",
+    "name": "Documentation RAG",
+    "icon": "📖",
+    "tagline": "Ask questions across your documentation",
+    "kind": "rag",
+    "collection": "docs"
+  },
+  {
+    "id": "pdf",
+    "name": "PDF Chat",
+    "icon": "📄",
+    "tagline": "Upload a PDF and ask questions about it",
+    "kind": "pdf",
+    "collection": "pdf"
+  }
+]

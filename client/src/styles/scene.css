@@ -1,0 +1,30 @@
+/* ---------- 3D scene ---------- */
+.bg3d {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(1100px 700px at 74% 42%, var(--scene-glow) 0%, transparent 62%),
+    radial-gradient(900px 600px at 10% 100%, rgba(255, 181, 71, 0.06), transparent 60%),
+    linear-gradient(var(--page), var(--scene-mid) 65%, var(--page));
+}
+.bg3d canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.bg3d::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 45%, transparent 50%, rgba(var(--ink-rgb), 0.72) 100%);
+}
+
+/* The lattice is drawn light-on-dark; inverting it gives dark-on-light with the same hues. */
+:root[data-theme="light"] .bg3d canvas {
+  filter: invert(1) hue-rotate(180deg);
+  opacity: 0.55;
+}

@@ -1,0 +1,72 @@
+{
+  "name": "ai-developer-os",
+  "version": "1.3.2",
+  "private": true,
+  "description": "One workspace. Every developer tool. One AI brain. (MERN + LLM + NLP/ML)",
+  "scripts": {
+    "dev": "concurrently -n api,web -c yellow,cyan \"node --watch server/src/index.js\" \"vite --config client/vite.config.mjs\"",
+    "dev:server": "node --watch server/src/index.js",
+    "dev:client": "vite --config client/vite.config.mjs",
+    "build": "vite build --config client/vite.config.mjs",
+    "start": "node server/src/index.js",
+    "preview": "vite preview --config client/vite.config.mjs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "npm run test:server && npm run test:client",
+    "test:server": "node --test \"server/test/*.test.js\"",
+    "test:client": "vitest run --config client/vitest.config.mjs",
+    "check": "npm run lint && npm run format:check && npm test && npm run build",
+    "personalize": "node scripts/personalize.js",
+    "seed": "node scripts/seed.js",
+    "test:e2e": "playwright test",
+    "test:coverage": "vitest run --coverage --config client/vitest.config.mjs",
+    "test:integration": "node --test \"server/integration/*.test.js\"",
+    "screenshots": "node scripts/screenshots.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^1.55.0",
+    "mongoose": "^8.9.0",
+    "multer": "^2.4.0",
+    "pdf-parse": "1.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@playwright/test": "^1.64.0",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@vitejs/plugin-react": "^5.0.0",
+    "@vitest/coverage-v8": "^4.1.11",
+    "axe-core": "^4.14.0",
+    "concurrently": "^9.1.0",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "jsdom": "^30.1.2",
+    "prettier": "^3.9.10",
+    "vite": "^7.0.0",
+    "vitest": "^4.0.0"
+  },
+  "license": "MIT",
+  "optionalDependencies": {
+    "mongodb-memory-server": "^11.3.0"
+  }
+}

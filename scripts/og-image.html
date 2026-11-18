@@ -1,0 +1,124 @@
+<!doctype html>
+<meta charset="utf-8" />
+<style>
+  @font-face {
+    font-family: Bric;
+    src: url("../node_modules/@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2");
+    font-weight: 200 800;
+  }
+  @font-face {
+    font-family: Plex;
+    src: url("../node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: Plex;
+    src: url("../node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-500-normal.woff2");
+    font-weight: 500;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: #060e13;
+    color: #eaf3f0;
+    font-family: Plex, sans-serif;
+    position: relative;
+  }
+  .glow {
+    position: absolute;
+    right: -140px;
+    top: -120px;
+    width: 760px;
+    height: 760px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 181, 71, 0.38) 0%, rgba(95, 212, 184, 0.16) 38%, transparent 68%);
+  }
+  svg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0.55;
+  }
+  .wrap {
+    position: absolute;
+    inset: 0;
+    padding: 64px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font: 600 28px Plex;
+  }
+  .logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #060e13 0 28%, transparent 30%), conic-gradient(#ffb547, #5fd4b8, #ffb547);
+  }
+  h1 {
+    font: 700 84px/1.02 Bric;
+    letter-spacing: -0.03em;
+  }
+  h1 span {
+    background: linear-gradient(120deg, #ffc46b, #ffb547 40%, #5fd4b8);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  p {
+    font-size: 28px;
+    color: #b9cacc;
+    max-width: 760px;
+    line-height: 1.4;
+    margin-top: 22px;
+  }
+  .chips {
+    display: flex;
+    gap: 10px;
+  }
+  .chips b {
+    font:
+      500 18px "IBM Plex Mono",
+      monospace;
+    padding: 8px 16px;
+    border: 1px solid rgba(120, 200, 190, 0.35);
+    border-radius: 999px;
+    background: rgba(8, 20, 27, 0.7);
+    color: #9fb6ba;
+  }
+</style>
+<div class="glow"></div>
+<svg width="700" height="630" viewBox="0 0 700 630" fill="none" stroke="#5fd4b8" stroke-width="1">
+  <g opacity=".5">
+    <path d="M520 120L610 210L560 330L650 420L520 470L430 360L470 240Z" />
+    <path d="M470 240L610 210M430 360L560 330M520 120L470 240M610 210L650 420M520 470L560 330" />
+  </g>
+  <g fill="#ffb547" stroke="none">
+    <circle cx="520" cy="120" r="6" />
+    <circle cx="610" cy="210" r="5" />
+    <circle cx="560" cy="330" r="9" />
+    <circle cx="650" cy="420" r="5" />
+    <circle cx="520" cy="470" r="6" />
+    <circle cx="430" cy="360" r="5" />
+    <circle cx="470" cy="240" r="6" />
+  </g>
+</svg>
+<div class="wrap">
+  <div class="brand">
+    <div class="logo"></div>
+    AI Developer OS
+  </div>
+  <div>
+    <h1>One workspace.<br />Every developer tool.<br /><span>One AI brain.</span></h1>
+    <p>Chat, code, research, query, test, debug and deploy from one place, with one shared memory.</p>
+  </div>
+  <div class="chips"><b>React</b><b>Node.js</b><b>MongoDB</b><b>Claude</b><b>RAG</b></div>
+</div>

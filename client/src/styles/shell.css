@@ -1,0 +1,141 @@
+/* ---------- app shell ---------- */
+.shell {
+  display: flex;
+  height: 100%;
+}
+.sidebar {
+  width: 252px;
+  flex-shrink: 0;
+  height: 100%;
+  overflow-y: auto;
+  background: var(--bg2);
+  border-right: 1px solid var(--line);
+  padding: 16px 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 40;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 8px 16px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+.logo {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 5px solid var(--amber);
+  position: relative;
+  flex-shrink: 0;
+}
+.logo::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--sea);
+}
+.nav-label {
+  padding: 14px 10px 5px;
+  font-size: 12.5px;
+  color: var(--muted);
+  font-weight: 500;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 7px;
+  font-size: 14px;
+  color: var(--soft);
+  border-left: 3px solid transparent;
+}
+.nav-link:hover {
+  background: var(--panel);
+}
+.nav-link.active {
+  background: var(--panel2);
+  color: var(--text);
+  border-left-color: var(--amber);
+  font-weight: 600;
+}
+.nav-link .ico {
+  width: 20px;
+  text-align: center;
+}
+.main {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.topbar {
+  height: 54px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 22px;
+  border-bottom: 1px solid var(--line);
+}
+.menu-btn {
+  display: none;
+  font-size: 20px;
+  padding: 4px 8px;
+}
+.content {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+.page {
+  padding: 28px 30px 60px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.page-head {
+  margin-bottom: 22px;
+}
+.page-head h1 {
+  font-size: 30px;
+}
+.page-head p {
+  color: var(--muted);
+  margin-top: 4px;
+}
+.scrim {
+  display: none;
+}
+@media (max-width: 900px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 0.22s;
+  }
+  .sidebar.open {
+    transform: none;
+  }
+  .menu-btn {
+    display: block;
+  }
+  .scrim.show {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 30;
+  }
+  .page {
+    padding: 20px 16px 50px;
+  }
+}

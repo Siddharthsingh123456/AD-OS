@@ -1,0 +1,308 @@
+/* ---------- toasts, dialogs, skeletons, code tokens, offline banner ---------- */
+.toasts {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(380px, calc(100vw - 32px));
+  pointer-events: none;
+}
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 11px 12px 11px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--glass-strong, #0a1820);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+  animation: toast-in 0.22s ease-out;
+}
+.toast > span {
+  flex: 1;
+  line-height: 1.45;
+  padding-top: 1px;
+}
+.toast > svg {
+  flex: none;
+  margin-top: 2px;
+}
+.toast button {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  color: var(--muted);
+}
+.toast button:hover {
+  background: var(--panel2);
+  color: var(--text);
+}
+.toast.success {
+  border-color: rgba(95, 212, 184, 0.5);
+}
+.toast.success > svg {
+  color: var(--sea);
+}
+.toast.error {
+  border-color: rgba(255, 122, 107, 0.55);
+}
+.toast.error > svg {
+  color: var(--danger);
+}
+.toast.info > svg {
+  color: var(--amber);
+}
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.dlg-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 350;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(var(--ink-rgb), 0.66);
+  backdrop-filter: blur(4px);
+  animation: fade-in 0.15s ease-out;
+}
+.dlg {
+  width: min(440px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px solid var(--glass-line, var(--line));
+  background: var(--panel);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
+  animation: dlg-in 0.18s ease-out;
+}
+.dlg h2 {
+  font-size: 20px;
+}
+.dlg p {
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+.dlg-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+.btn.danger-solid {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #2a0800;
+}
+.btn.danger-solid:hover {
+  background: #ff9183;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes dlg-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--panel) 0%, var(--panel2) 50%, var(--panel) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.tok-comment {
+  color: #6d8b95;
+  font-style: italic;
+}
+.tok-string {
+  color: var(--sea);
+}
+.tok-number {
+  color: #f4a37b;
+}
+.tok-keyword {
+  color: var(--amber);
+}
+.tok-fn {
+  color: #8cc9ff;
+}
+.tok-tag {
+  color: #ff8f7a;
+}
+.tok-attr {
+  color: #c8b5ff;
+}
+
+.emoji-ico {
+  display: inline-grid;
+  place-items: center;
+  line-height: 1;
+}
+.offline {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  padding: 8px 14px;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 500;
+  background: rgba(255, 181, 71, 0.14);
+  border-bottom: 1px solid rgba(255, 181, 71, 0.45);
+  color: var(--amber);
+}
+.recent-list {
+  display: grid;
+  gap: 8px;
+}
+.recent-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+.recent-row:hover {
+  border-color: var(--amber);
+  background: var(--panel2);
+}
+.recent-row .ico {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--bg2);
+  color: var(--amber);
+}
+.recent-row b {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.recent-row small {
+  flex: none;
+  color: var(--muted);
+  font-size: 12.5px;
+}
+.jump-latest {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  z-index: 5;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+.btn.sm svg,
+.btn svg {
+  flex: none;
+}
+.chat-scroll {
+  position: relative;
+}
+.conv button:focus-visible {
+  opacity: 1;
+}
+.chat-head .ico,
+.nav-link .ico,
+.pal-ico {
+  display: inline-grid;
+  place-items: center;
+  color: var(--amber);
+}
+.nav-link .ico {
+  color: inherit;
+  opacity: 0.85;
+}
+.nav-link.active .ico {
+  color: var(--amber);
+  opacity: 1;
+}
+.empty-ico {
+  display: inline-grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  border: 1px solid var(--glass-line, var(--line));
+  background: var(--panel);
+  color: var(--amber);
+}
+.msg .actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.index-row .ico {
+  color: var(--amber);
+  display: inline-grid;
+  place-items: center;
+}
+.cap-ico {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--panel);
+  border: 1px solid var(--glass-line, var(--line));
+  color: var(--amber);
+}
+.mod > .ico {
+  color: var(--amber);
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+}
+.plans-note {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 13.5px;
+}

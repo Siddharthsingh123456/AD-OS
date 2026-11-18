@@ -1,0 +1,28 @@
+/* ---------- auth strength ---------- */
+.meter {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.meter-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+.meter-bar i {
+  height: 4px;
+  border-radius: 4px;
+  background: var(--panel2);
+}
+.meter-bar.s1 i:nth-child(-n + 1) {
+  background: var(--danger);
+}
+.meter-bar.s2 i:nth-child(-n + 2) {
+  background: var(--amber-fill);
+}
+.meter-bar.s3 i:nth-child(-n + 3) {
+  background: #b6d86a;
+}
+.meter-bar.s4 i {
+  background: var(--sea);
+}

@@ -1,0 +1,10 @@
+node_modules
+client/dist
+.git
+.env
+.env.local
+.vercel
+coverage
+ml-service
+docs
+.data

@@ -1,0 +1,141 @@
+/* ---------- glass over the 3D scene (app) ---------- */
+.sidebar {
+  background: rgba(var(--ink-rgb), 0.74);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-right-color: var(--glass-line);
+}
+.topbar {
+  background: rgba(var(--ink-rgb), 0.5);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom-color: var(--glass-line);
+}
+.nav-link {
+  transition:
+    background 0.15s,
+    transform 0.15s;
+}
+.nav-link:hover {
+  transform: translateX(2px);
+}
+.nav-link.active {
+  background: linear-gradient(90deg, rgba(255, 181, 71, 0.16), rgba(var(--panel2-rgb), 0.6));
+}
+.panel,
+.strip,
+.notice,
+.chat-side,
+.fields,
+.toolbar,
+.composer,
+.chat-head,
+.rag-grid > aside {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: var(--glass-line);
+}
+.panel {
+  border-radius: 14px;
+  box-shadow: 0 24px 50px -30px rgba(0, 0, 0, 0.7);
+}
+.chat-side,
+.chat-head,
+.toolbar,
+.composer,
+.fields,
+.rag-grid > aside {
+  background: rgba(var(--ink-rgb), 0.5);
+}
+.input,
+.textarea,
+.select,
+.opt,
+.chip {
+  background: rgba(var(--ink-rgb), 0.65);
+  border-color: var(--glass-line);
+}
+.msg.assistant .bubble {
+  background: rgba(var(--panel-rgb), 0.55);
+  padding: 12px 16px;
+  border-radius: 4px 14px 14px 14px;
+  border: 1px solid var(--glass-line);
+}
+.msg.user .bubble {
+  background: linear-gradient(135deg, rgba(var(--panel2-rgb), 0.95), rgba(var(--panel2-rgb), 0.95));
+  border: 1px solid var(--glass-line);
+}
+.avatar-sm {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #10222a;
+  background: linear-gradient(135deg, var(--amber), var(--sea));
+}
+.usr {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.page-head h1 {
+  font-size: 32px;
+  text-shadow: 0 2px 24px rgba(var(--halo-rgb), 0.8);
+}
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+.tiles .index-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 16px;
+  border: 1px solid var(--glass-line);
+  border-radius: 14px;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.tiles .index-row:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 181, 71, 0.5);
+  box-shadow: 0 18px 40px -20px rgba(255, 181, 71, 0.35);
+  background: var(--glass);
+}
+.tiles .index-row > span:first-child {
+  font-size: 26px;
+  line-height: 1.2;
+}
+.strip > div {
+  border-right-color: var(--glass-line);
+}
+.strip {
+  border-radius: 14px;
+}
+.strip b {
+  color: var(--amber);
+}
+
+/* footer fixes */
+.foot-grid a.brand {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  font-size: 18px;
+  color: var(--text);
+}
+.foot-mark {
+  font-size: clamp(34px, 7.4vw, 116px);
+}

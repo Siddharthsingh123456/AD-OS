@@ -1,0 +1,38 @@
+# One command for a full local stack:  docker compose up --build
+# Add the optional ML service (embeddings + transformer NLP):  docker compose --profile ml up --build
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes: [mongo-data:/data/db]
+    healthcheck:
+      {
+        test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"],
+        interval: 10s,
+        timeout: 5s,
+        retries: 5,
+      }
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on: { mongo: { condition: service_healthy } }
+    ports: ["5000:5000"]
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/ai-developer-os
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in your shell or a .env file (openssl rand -hex 32)}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      ANTHROPIC_MODEL: ${ANTHROPIC_MODEL:-claude-sonnet-5-5}
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+      ML_SERVICE_URL: ${ML_SERVICE_URL:-}
+      ML_SERVICE_KEY: ${ML_SERVICE_KEY:-}
+
+  ml:
+    profiles: [ml]
+    build: ./ml-service
+    restart: unless-stopped
+    ports: ["8000:8000"]
+    environment: { ML_SERVICE_KEY: "${ML_SERVICE_KEY:-}" }
+
+volumes:
+  mongo-data:

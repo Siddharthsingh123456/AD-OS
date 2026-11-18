@@ -56,7 +56,8 @@ router.put(
 router.delete(
   "/:id",
   h(async (req, res) => {
-    await Note.deleteOne({ _id: v.id(req.params.id, "note id"), user: req.user._id });
+    const result = await Note.deleteOne({ _id: v.id(req.params.id, "note id"), user: req.user._id });
+    if (result.deletedCount === 0) throw httpError(404, "Note not found.");
     res.json({ ok: true });
   }),
 );

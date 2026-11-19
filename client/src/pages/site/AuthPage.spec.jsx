@@ -34,9 +34,9 @@ describe("AuthPage Skip for now", () => {
     expect(screen.getByRole("button", { name: "Skip for now" })).toBeInTheDocument();
   });
 
-  it("is hidden when the server has guest login switched off", async () => {
+  it("remains visible when the server has guest login switched off so preview fallback is available", async () => {
     vi.stubGlobal("fetch", async () => ({ json: async () => ({ guest: false }) }));
     mount("login");
-    await vi.waitFor(() => expect(screen.queryByRole("button", { name: "Skip for now" })).toBeNull());
+    expect(await screen.findByRole("button", { name: "Skip for now" })).toBeInTheDocument();
   });
 });

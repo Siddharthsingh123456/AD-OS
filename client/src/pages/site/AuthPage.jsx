@@ -23,13 +23,11 @@ export default function AuthPage({ mode }) {
   const [busy, setBusy] = useState(false);
   const [show, setShow] = useState(false);
   const [demoOn, setDemoOn] = useState(false);
-  const [guestOn, setGuestOn] = useState(true);
   useEffect(() => {
     fetch("/api/health")
       .then((r) => r.json())
       .then((h) => {
         setDemoOn(!!h.demo);
-        setGuestOn(h.guest !== false);
       })
       .catch(() => {});
   }, []);
@@ -174,16 +172,14 @@ export default function AuthPage({ mode }) {
               Try the demo with sample data
             </button>
           )}
-          {guestOn && (
-            <div className="skip-login">
-              <button type="button" className="btn ghost block" disabled={busy} onClick={skipForNow}>
-                Skip for now
-              </button>
-              <small className="muted">
-                Opens the workspace on a shared guest account. If the server is not ready you get a view-only preview.
-              </small>
-            </div>
-          )}
+          <div className="skip-login">
+            <button type="button" className="btn ghost block" disabled={busy} onClick={skipForNow}>
+              Skip for now
+            </button>
+            <small className="muted">
+              Opens the workspace without an account. If guest sign-in is unavailable, a view-only preview opens instead.
+            </small>
+          </div>
           <div className="small muted">
             {isReg ? (
               <>
